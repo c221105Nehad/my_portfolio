@@ -1,0 +1,22 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack PERN developer portfolio",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+  "dev": "concurrently -k -n API,WEB -c cyan,green \"npm run dev --workspace=@portfolio/server\" \"npm run dev --workspace=@portfolio/client\"",
+  "build": "npm run build --workspaces --if-present",
+  "typecheck": "npm run typecheck --workspaces --if-present",
+  "lint": "npm run lint --workspaces --if-present"
+},
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
